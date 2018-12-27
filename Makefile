@@ -4,7 +4,7 @@ INCLUDE = minishell.h
 
 FLAG = -Wall -Werror -Wextra
 
-SRCS = test.c run_bin.c read_line.c
+SRCS = minishell.c run_bin.c read_line.c tilde.c
 
 OBJS = $(SRCS:.c=.o)
 

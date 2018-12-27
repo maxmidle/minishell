@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-char	**read_line(char **command)
+char	**read_line(char **command, char **environ)
 {
 	char	**param;
 	char buff[2];
@@ -14,6 +14,8 @@ char	**read_line(char **command)
 		ft_strconc(command, buff);
 		read(0, &buff, 1);
 	}
+	if (ft_strchr(*command, '~'))
+		*command = tilde(*command, environ);
 	param = ft_strsplit(*command, ' ');
 	while (command[0][i] && command[0][i] != ' ')
 		i++;
