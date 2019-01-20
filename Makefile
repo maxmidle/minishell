@@ -2,9 +2,9 @@ NAME = minishell
 
 INCLUDE = minishell.h
 
-FLAG = -Wall -Werror -Wextra
+FLAG = -Wall -Wextra -Werror
 
-SRCS = minishell.c run_bin.c read_line.c tilde.c
+SRCS = minishell.c run_bin.c read_line.c tilde.c env.c verif.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,25 +1,71 @@
 #include "minishell.h"
 
-char	**read_line(char **command, char **environ)
+char	**read_line(char **environ)
 {
-	char	**param;
+	char	**command;
+	char	*tmp;
 	char buff[2];
 	int i;
 
 	i = 0;
 	buff[1] = '\0';
+	tmp = ft_strnew(0);
 	read(0, &buff, 1);
 	while (buff[0] != '\n')
 	{
-		ft_strconc(command, buff);
+		ft_strconc(&tmp, buff);
 		read(0, &buff, 1);
 	}
-	if (ft_strchr(*command, '~'))
-		*command = tilde(*command, environ);
-	param = ft_strsplit(*command, ' ');
-	while (command[0][i] && command[0][i] != ' ')
+	if (ft_strstr(tmp, " ~"))
+		tmp = tilde(tmp, environ);
+	command = split_line(tmp);
+	ft_strdel(&tmp);
+	return (command);
+}
+
+char	**split_line(char *str)
+{
+	char	**command;
+	int	wordct;
+	int	i;
+	int	start;
+	int	end;
+
+	i = 0;
+	end = 0;
+	wordct = count_words(str);
+	command = (char **)malloc(sizeof(char *) * (wordct + 1));
+	while (i < wordct)
+	{
+		while (str[end] && ft_issep(str[end]))
+			end++;
+		start = end;
+		while (str[end] && !ft_issep(str[end]))
+			end++;
+		command[i] = ft_strsub(str, start, end - start);
 		i++;
-	if (command[0][i] == ' ')
-		command[0][i] = '\0';
-	return (param);
+	}
+	command[i] = NULL;
+	return (command);
+}
+
+int	count_words(char *str)
+{
+	int i;
+	int wordct;
+
+	i = 0;
+	wordct = 0;
+	while(str[i])
+	{
+		while (str[i] && !ft_issep(str[i]))
+		{
+			if (!str[i + 1] || ft_issep(str[i + 1]))
+				wordct++;
+			i++;
+		}
+		if (str[i])
+			i++;
+	}
+	return (wordct);
 }
