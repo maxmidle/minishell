@@ -58,11 +58,18 @@ char	**ft_setenv(char **environ, char *var)
 	i = 0;
 	while (environ[i])
 	{
-		envout[i] = ft_strdup(environ[i]);
+		if (!ft_strccmp(environ[i], var, '='))
+		{
+			envout[i] = ft_strdup(var);
+			var = NULL;
+		}
+		else
+			envout[i] = ft_strdup(environ[i]);
 		i++;
 	}
-	envout[i] = ft_strdup(var);
-	envout[i + 1] = NULL;
+	if (var)
+		envout[i++] = ft_strdup(var);
+	envout[i] = NULL;
 	ft_freetab(environ);
 	return (envout);
 }

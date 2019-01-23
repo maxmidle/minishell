@@ -19,6 +19,7 @@ char	**read_line(char **environ)
 	if (ft_strstr(tmp, " ~"))
 		tmp = tilde(tmp, environ);
 	command = split_line(tmp);
+	command = dollar(command, environ);
 	ft_strdel(&tmp);
 	return (command);
 }
