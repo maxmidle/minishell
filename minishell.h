@@ -21,6 +21,7 @@ char 	**ft_unsetenv(char **environ, char *var);
 char 	**ft_unsetenv_all(char **environ);
 
 int	env_verif(char **command);
+int	env_error_print(char **cmd, int i);
 
 void	ft_cd(char **command, char **envorig);
 void	cd_error(int mode, char *command);
@@ -32,4 +33,8 @@ void	ft_echo(char **command);
 char	**dollar(char **command, char **environ);
 char	*dollar_verif(char *command, char **environ);
 char	*dollar_fill(char *command, char *environ);
+
+char	**run_cmd(char **command, char **envorig, char **envexec);
+char	**run_builtins(char **command, char **envorig);
+int	ft_isbuiltins(char *command);
 #endif

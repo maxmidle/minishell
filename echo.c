@@ -5,7 +5,7 @@ void	ft_echo(char **command)
 	int i;
 
 	i = 1;
-	if (!ft_strcmp(command[1], "-n"))
+	if (command[1] && !ft_strcmp(command[1], "-n"))
 		i++;
 	while (command && command[i])
 	{
@@ -14,6 +14,6 @@ void	ft_echo(char **command)
 			ft_putchar(' ');
 		i++;
 	}
-	if (ft_strcmp(command[1], "-n"))
+	if (!command[1] || ft_strcmp(command[1], "-n"))
 		ft_putchar('\n');
 }

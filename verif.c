@@ -7,16 +7,14 @@ int	env_verif(char **cmd)
 
 	i = 1;
 	stop = 0;
+	if (ft_strcmp(cmd[0], "env"))
+		return (0);
 	while (!stop && cmd[i])
 	{
 		if (cmd[i][0] == '-')
 		{
 			if (!ft_strchr(cmd[i], 'i') && !ft_strchr(cmd[i], 'u'))
-			{
-				ft_printf("env: illegal option -- %c", cmd[i][1]);
-				ft_putendl("\nusage: env [-i] [-u name] [name=value]");
-				return (-1);
-			}
+				return (env_error_print(cmd, i));
 			if (ft_strchr(cmd[i], 'u'))
 				i++;
 		}
@@ -28,4 +26,11 @@ int	env_verif(char **cmd)
 		i++;
 	}
 	return (i);
+}
+
+int	env_error_print(char **cmd, int i)
+{
+	ft_printf("env: illegal option -- %c", cmd[i][1]);
+	ft_putendl("\nusage: env [-i] [-u name] [name=value]");
+	return (-1);
 }

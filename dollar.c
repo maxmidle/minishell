@@ -33,10 +33,11 @@ char	*dollar_verif(char *command, char **environ)
 	y = i;
 	while (command[y] && ft_isalpha(command[y]))
 		y++;
-	var = ft_strsub(command, i, y - i);//le var fait segfault
+	var = ft_strsub(command, i, y - i);
 	i = 0;
 	while (environ[i] && ft_strcmp(environ[i], var) != 61)
 		i++;
+	ft_strdel(&var);
 	return (environ[i]);
 }
 
