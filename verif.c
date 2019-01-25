@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-int	env_verif(char **cmd)
+int	env_verif(char **cmd, int mode)
 {
 	int i;
 	int stop;
@@ -14,7 +14,7 @@ int	env_verif(char **cmd)
 		if (cmd[i][0] == '-')
 		{
 			if (!ft_strchr(cmd[i], 'i') && !ft_strchr(cmd[i], 'u'))
-				return (env_error_print(cmd, i));
+				return (env_error_print(cmd, i, mode));
 			if (ft_strchr(cmd[i], 'u'))
 				i++;
 		}
@@ -28,9 +28,12 @@ int	env_verif(char **cmd)
 	return (i);
 }
 
-int	env_error_print(char **cmd, int i)
+int	env_error_print(char **cmd, int i, int mode)
 {
-	ft_printf("env: illegal option -- %c", cmd[i][1]);
-	ft_putendl("\nusage: env [-i] [-u name] [name=value]");
+	if (mode)
+	{
+		ft_printf("env: illegal option -- %c", cmd[i][1]);
+		ft_putendl("\nusage: env [-i] [-u name] [name=value]");
+	}
 	return (-1);
 }

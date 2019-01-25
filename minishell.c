@@ -17,7 +17,7 @@ int	main()
 		envexec = ft_tabdup(envorig);
 		if (command[0] && !ft_strcmp(command[0], "env"))
 		{
-			if (env_verif(command) != -1)
+			if (env_verif(command, 1) != -1)
 				envexec = env(command, envorig, envexec);
 		}
 		envorig = run_cmd(command, envorig, envexec);

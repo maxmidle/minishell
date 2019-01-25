@@ -4,8 +4,10 @@ char	**run_cmd(char **command, char **envorig, char **envexec)
 {
 	int	i;
 
-	i = env_verif(command);
-	if (ft_isbuiltins(command[0]))
+	if ((i = env_verif(command, 0)) == -1)
+		i = ft_tablen(command);
+	ft_putnbr(i);
+	if (command[i] && ft_isbuiltins(command[i]))
 		envorig = run_builtins(command, envorig);
 	else if (command[i] && !run_bin(&command[i], envorig, envexec))
 	{

@@ -20,8 +20,8 @@ char 	**ft_setenv(char **environ, char *var);
 char 	**ft_unsetenv(char **environ, char *var);
 char 	**ft_unsetenv_all(char **environ);
 
-int	env_verif(char **command);
-int	env_error_print(char **cmd, int i);
+int	env_verif(char **command, int mode);
+int	env_error_print(char **cmd, int i, int mode);
 
 void	ft_cd(char **command, char **envorig);
 void	cd_error(int mode, char *command);
