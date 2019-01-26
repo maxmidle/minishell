@@ -22,7 +22,7 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 	if (!s || start + len > ft_strlen(s))
 		return (NULL);
 	if (!len)
-		return ("");
+		return (ft_strnew(0));
 	if (!(scpy = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	while (len--)

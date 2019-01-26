@@ -30,11 +30,20 @@ char	**run_builtins(char **command, char **envorig)
 		ft_cd(command, envorig);
 	else if (!ft_strcmp(command[0], "echo"))
 		ft_echo(command);
-	else if (!ft_strcmp(command[0], "setenv") && command[1] &&
-		ft_strchr(command[1], '='))
-		envorig = ft_setenv(envorig, command[1]);
-	else if (!ft_strcmp(command[0], "unsetenv") && command[1])
-		envorig = ft_unsetenv(envorig, command[1]);
+	else if (!ft_strcmp(command[0], "setenv"))
+	{
+		if (!command[1] || !ft_strchr(command[1], '='))
+			ft_putendl("usage: setenv [VAR=value]");
+		else
+			envorig = ft_setenv(envorig, command[1]);
+	}
+	else if (!ft_strcmp(command[0], "unsetenv"))
+	{
+		if (command[1])
+			envorig = ft_unsetenv(envorig, command[1]);
+		else
+			ft_putendl("usage: unsetenv [VAR]");
+	}
 	return (envorig);
 }
 

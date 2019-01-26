@@ -12,7 +12,7 @@ int	main()
 	{
 		command = NULL;
 		wait(0);
-		ft_printf("minishell: %s/ $>", (ft_strrchr(envorig[12], '/') + 1));
+		ft_printf("mhs: %s/ )>", (ft_strrchr(envorig[12], '/') + 1));
 		command = read_line(envorig);
 		envexec = ft_tabdup(envorig);
 		if (command[0] && !ft_strcmp(command[0], "env"))
