@@ -35,17 +35,21 @@ SRCS = ft_print_words_tables.c ft_strplc.c ft_strjoin.c ft_putchar.c \
 OBJET = $(SRCS:.c=.o)
 
 $(NAME): $(SRCS)
-	gcc $(FLAG) -c $(SRCS)
-	ar rc libft.a $(OBJET)
-	ranlib libft.a
+	@gcc $(FLAG) -c $(SRCS)
+	@ar rc libft.a $(OBJET)
+	@ranlib libft.a
+	@echo "\033[32mlibft...........[OK]\033[0m"
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJET)
+	@rm -f $(OBJET)
+	@echo "\033[31mlibft...........[clean]\033[0m"
 
-fclean: clean
-	rm -f libft.a
+fclean:
+	@rm -f $(OBJET)
+	@rm -f libft.a
+	@echo "\033[31mlibft...........[fclean]\033[0m"
 
 re:fclean all
 
