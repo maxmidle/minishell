@@ -30,6 +30,7 @@ void	change_pwd(char **envorig, char *oldpwd);
 char	*getpath(char *command, char *oldpwd);
 
 void	ft_echo(char **command);
+void	ft_prompt(char *envorig);
 
 char	**dollar(char **command, char **environ);
 char	*dollar_verif(char *command, char **environ);

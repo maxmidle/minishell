@@ -16,6 +16,11 @@ char	**read_line(char **environ)
 		ft_strconc(&tmp, buff);
 		read(0, &buff, 1);
 	}
+	if (ft_strlen(tmp) == 0)
+	{
+		ft_strdel(&tmp);
+		return (NULL);
+	}
 	if (ft_strstr(tmp, " ~"))
 		tmp = tilde(tmp, environ);
 	command = split_line(tmp);

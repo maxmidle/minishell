@@ -4,6 +4,8 @@ char	**run_cmd(char **command, char **envorig, char **envexec)
 {
 	int	i;
 
+	if (!command)
+		return (envorig);
 	if ((i = env_verif(command, 0)) == -1)
 		i = ft_tablen(command);
 	if (command[i] && ft_isbuiltins(command[i]))

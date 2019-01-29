@@ -20,6 +20,7 @@
 char	*ft_strnconc(char **s1, size_t ls1, char *s2, size_t ls2);
 void	ft_strbackconc(char **s1, char *s2);
 void	ft_strconc(char **s1, char *s2);
+void	ft_strins(char **dest, char *instr, size_t i);
 void	ft_swap(char *a, char *b);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
