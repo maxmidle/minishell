@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run_bin.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:19:12 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:22:02 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 int	run_bin(char **command, char **envorig, char **envexec)
 {
-	char **bpath;
-	int y;
-	pid_t pid;
+	char	**bpath;
+	int		y;
+	pid_t	pid;
 
 	y = 0;
 	while (envorig[y] && !(ft_strstr(envorig[y], "PATH=")))

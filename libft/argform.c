@@ -6,7 +6,7 @@
 /*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:21:42 by radler            #+#    #+#             */
-/*   Updated: 2018/06/21 20:46:17 by radler           ###   ########.fr       */
+/*   Updated: 2018/07/04 12:27:40 by radler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*getargform(const char *format)
 	i = 1;
 	argform = NULL;
 	while (format[i] && (!(ft_isalpha(format[i])) || ft_isconv(format[i])) &&
-		 format[i] != '%')
+			format[i] != '%')
 		i++;
 	if (!ft_isarg(format[i]) && format[i] != '%')
 	{
@@ -59,7 +59,7 @@ char	*getargtype(char *argform)
 		argtype = ft_strdup("h");
 	else
 		argtype = ft_strnew(0);
-	ft_strnconc(&argtype, ft_strlen(argtype),  &last, 1);
+	ft_strnconc(&argtype, ft_strlen(argtype), &last, 1);
 	return (argtype);
 }
 
@@ -91,9 +91,9 @@ char	**argtabinit(void)
 
 char	*ptrfuninit(int i, char *argform, va_list ap)
 {
-	char *str;
+	char	*str;
 	char	*(**f)(char *, va_list);
-	
+
 	f = malloc(sizeof(*f) * 18);
 	f[0] = argtype_int;
 	f[1] = argtype_uint;

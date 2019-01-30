@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:23:13 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:23:59 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 char	**read_line(char **environ)
 {
 	char	**command;
 	char	*tmp;
-	char buff[2];
-	int i;
+	char	buff[2];
+	int		i;
 
 	i = 0;
 	buff[1] = '\0';
@@ -16,7 +28,7 @@ char	**read_line(char **environ)
 		ft_strconc(&tmp, buff);
 		read(0, &buff, 1);
 	}
-	if (ft_strlen(tmp) == 0)
+	if (count_words(tmp) == 0)
 	{
 		ft_strdel(&tmp);
 		return (NULL);
@@ -32,10 +44,10 @@ char	**read_line(char **environ)
 char	**split_line(char *str)
 {
 	char	**command;
-	int	wordct;
-	int	i;
-	int	start;
-	int	end;
+	int		wordct;
+	int		i;
+	int		start;
+	int		end;
 
 	i = 0;
 	end = 0;
@@ -55,14 +67,14 @@ char	**split_line(char *str)
 	return (command);
 }
 
-int	count_words(char *str)
+int		count_words(char *str)
 {
 	int i;
 	int wordct;
 
 	i = 0;
 	wordct = 0;
-	while(str[i])
+	while (str[i])
 	{
 		while (str[i] && !ft_issep(str[i]))
 		{

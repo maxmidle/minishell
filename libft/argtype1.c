@@ -6,7 +6,7 @@
 /*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 17:09:47 by radler            #+#    #+#             */
-/*   Updated: 2018/06/21 21:31:24 by radler           ###   ########.fr       */
+/*   Updated: 2018/07/04 12:14:46 by radler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*argtype_charchar(char *argtype, va_list ap)
 	last = ft_strlen(argtype) - 1;
 	arg = va_arg(ap, char *);
 	if (!arg)
-		return(ft_strdup("(null)"));
+		return (ft_strdup("(null)"));
 	if (argtype[last] == 's')
 		return (ft_strdup(arg));
 	return (NULL);

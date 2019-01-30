@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   precision.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/04 12:25:04 by radler            #+#    #+#             */
+/*   Updated: 2018/07/04 12:25:06 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	getprec(char *argform)
+int		getprec(char *argform)
 {
 	int i;
 
@@ -37,7 +49,7 @@ char	*handleprec(int prec, char *argform, char *str)
 			str = handlenegprec(prec, str);
 		else
 		{
-			while((int)ft_strlen(str) < prec)
+			while ((int)ft_strlen(str) < prec)
 				ft_strbackconc(&str, "0");
 		}
 	}

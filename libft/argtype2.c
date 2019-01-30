@@ -6,7 +6,7 @@
 /*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 19:26:17 by radler            #+#    #+#             */
-/*   Updated: 2018/06/21 18:47:34 by radler           ###   ########.fr       */
+/*   Updated: 2018/07/04 12:15:33 by radler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ char	*argtype_char(char *argtype, va_list ap)
 
 char	*argtype_long(char *argtype, va_list ap)
 {
-	long argu;
-	int last;
+	long	argu;
+	int		last;
 
 	last = ft_strlen(argtype) - 1;
 	argu = va_arg(ap, long);
 	if (ft_strstr(argtype, "ld") || ft_strstr(argtype, "li") ||
-			   	argtype[last] == 'D')
+		argtype[last] == 'D')
 	{
 		if (argu >= 0)
 			return (ft_itoa_base((unsigned long long)argu, 10));

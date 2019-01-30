@@ -6,7 +6,7 @@
 /*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 15:26:26 by radler            #+#    #+#             */
-/*   Updated: 2018/06/13 17:44:57 by radler           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:42:34 by radler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_upcase(char *str);
-char 	*ft_strrev(char *str);
+char	*ft_strrev(char *str);
 char	*ft_strplc(char *str, char a, char b);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t len);
@@ -59,7 +59,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_issep(char c);
 char	**ft_tabdup(char **tab);
-int	ft_tablen(char **str);
+int		ft_tablen(char **str);
 void	ft_freetab(char **str);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);

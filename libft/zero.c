@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zero.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/04 12:25:53 by radler            #+#    #+#             */
+/*   Updated: 2018/07/04 12:25:55 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	is_zero(char *argform)
+int		is_zero(char *argform)
 {
 	int i;
 
@@ -22,9 +34,9 @@ int	is_zero(char *argform)
 
 char	*handlezero(int len, char *argform, char *str, int prec)
 {
-	int i;
-	char last;
-	
+	int		i;
+	char	last;
+
 	last = argform[ft_strlen(argform) - 1];
 	i = 0;
 	if (ft_isnumconv(last) && prec > -1)

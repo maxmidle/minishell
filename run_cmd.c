@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run_cmd.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:22:36 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:22:52 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 char	**run_cmd(char **command, char **envorig, char **envexec)
@@ -49,7 +61,7 @@ char	**run_builtins(char **command, char **envorig)
 	return (envorig);
 }
 
-int	ft_isbuiltins(char *command)
+int		ft_isbuiltins(char *command)
 {
 	if (!ft_strcmp(command, "echo") || !ft_strcmp(command, "unsetenv") ||
 		!ft_strcmp(command, "setenv") || !ft_strcmp(command, "cd"))

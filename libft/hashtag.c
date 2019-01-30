@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hashtag.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/04 12:26:19 by radler            #+#    #+#             */
+/*   Updated: 2018/07/04 12:26:21 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*handlehashtag(int prec, char *argform, char *str)
 {
-	char last;
-	int i;
+	char	last;
+	int		i;
 
 	i = 0;
 	last = argform[ft_strlen(argform) - 1];

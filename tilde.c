@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tilde.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:22:07 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:22:21 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 char	*tilde(char *command, char **environ)
 {
-	int i;
-	int y;
-	char *str;
+	int		i;
+	int		y;
+	char	*str;
 
 	y = 0;
 	while (environ[y] && !(ft_strstr(environ[y], "HOME=")))

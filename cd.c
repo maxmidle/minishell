@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:18:53 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:20:26 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 void	ft_cd(char **command, char **envorig)
@@ -8,7 +20,7 @@ void	ft_cd(char **command, char **envorig)
 
 	getcwd(oldpwd, 2048);
 	if (command[1])
-		path = getpath(command[1], oldpwd);
+		path = getpath(command[1], oldpwd, envorig);
 	else
 		path = tilde(ft_strdup("~"), envorig);
 	if (!lstat(path, &sb))
@@ -28,10 +40,21 @@ void	ft_cd(char **command, char **envorig)
 	ft_strdel(&path);
 }
 
-char	*getpath(char *command, char *oldpwd)
+char	*getpath(char *command, char *oldpwd, char **envorig)
 {
-	char *path;
+	int		i;
+	char	*path;
 
+	i = 0;
+	while (envorig[i] && ft_strcmp(envorig[i], "OLDPWD") != 61)
+		i++;
+	if (!ft_strcmp(command, "-"))
+	{
+		if (envorig[i])
+			return (ft_strdup(&envorig[i][7]));
+		else
+			return (ft_strdup("-"));
+	}
 	if (command && command[0] == '/')
 		return (ft_strdup(command));
 	path = ft_strdup(oldpwd);
@@ -55,15 +78,15 @@ void	cd_error(int mode, char *command)
 
 void	change_pwd(char **envorig, char *oldpwd)
 {
-	int	i;
-	int	y;
+	int		i;
+	int		y;
 	char	buff[2048];
 
 	y = 0;
 	i = 0;
-	while(envorig[i] && ft_strcmp(envorig[i], "OLDPWD") != 61)
+	while (envorig[i] && ft_strcmp(envorig[i], "OLDPWD") != 61)
 		i++;
-	while(envorig[i] && ft_strcmp(envorig[y], "PWD") != 61)
+	while (envorig[y] && ft_strcmp(envorig[y], "PWD") != 61)
 		y++;
 	if (envorig[i])
 	{

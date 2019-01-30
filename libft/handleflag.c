@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handleflag.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/04 12:30:42 by radler            #+#    #+#             */
+/*   Updated: 2018/07/04 12:30:44 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*handleflag(char *argform, char *str)
 {
-	int	prec;
-	int 	min;
+	int		prec;
+	int		min;
 	char	last;
 
 	last = argform[ft_strlen(argform) - 1];

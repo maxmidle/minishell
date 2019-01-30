@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:19:41 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:20:05 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 char	**env(char **command, char **envorig, char **envexec)
@@ -49,7 +61,7 @@ char	**env_option(char **envexec, char **command, int *u)
 
 char	**ft_setenv(char **environ, char *var)
 {
-	int i;
+	int		i;
 	char	**envout;
 
 	i = ft_tablen(environ);
@@ -76,8 +88,8 @@ char	**ft_setenv(char **environ, char *var)
 
 char	**ft_unsetenv(char **environ, char *var)
 {
-	int i;
-	int y;
+	int		i;
+	int		y;
 	char	**envout;
 
 	i = ft_tablen(environ);

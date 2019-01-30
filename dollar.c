@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dollar.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/30 18:17:51 by radler            #+#    #+#             */
+/*   Updated: 2019/01/30 18:17:53 by radler           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 char	**dollar(char **command, char **environ)
 {
-	int	i;
+	int		i;
 	char	*tmp;
 
 	i = 0;
@@ -22,8 +34,8 @@ char	**dollar(char **command, char **environ)
 char	*dollar_verif(char *command, char **environ)
 {
 	char	*var;
-	int	i;
-	int	y;
+	int		i;
+	int		y;
 
 	i = 0;
 	var = NULL;
@@ -43,7 +55,7 @@ char	*dollar_verif(char *command, char **environ)
 
 char	*dollar_fill(char *command, char *environ)
 {
-	int	i;
+	int		i;
 	char	*tmp;
 	char	*cpy;
 
