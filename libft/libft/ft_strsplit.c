@@ -58,7 +58,6 @@ static char	**tab_init(const char *str, char **tstr, char c)
 			return (NULL);
 		index++;
 	}
-	tstr[index] = NULL;
 	return (tstr);
 }
 
