@@ -74,3 +74,15 @@ int	env_error_print(char **cmd, int i, int mode)
 	}
 	return (-1);
 }
+
+int	env_search(char **environ, char *var)
+{
+	int i;
+
+	i = 0;
+	while (environ[i] && !(ft_strstr(environ[i], var)))
+		i++;
+	if (environ[i])
+		return (i);
+	else return (-1);
+}

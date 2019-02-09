@@ -35,6 +35,7 @@ char	**ft_unsetenv_all(char **environ);
 int		env_verif(char **command, int mode);
 int		env_param_error(char **cmd, int i);
 int		env_error_print(char **cmd, int i, int mode);
+int		env_search(char **environ, char *var);
 
 void	ft_cd(char **command, char **envorig);
 void	cd_error(int mode, char *command);
