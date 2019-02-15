@@ -80,7 +80,7 @@ int	env_search(char **environ, char *var)
 	int i;
 
 	i = 0;
-	while (environ[i] && !(ft_strstr(environ[i], var)))
+	while (environ[i] && ft_strcmp(environ[i], var) != 61)
 		i++;
 	if (environ[i])
 		return (i);

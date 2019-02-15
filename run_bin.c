@@ -19,7 +19,7 @@ int	run_bin(char **command, char **envorig, char **envexec)
 	pid_t	pid;
 
 	y = 0;
-	if ((y = env_search(envorig, "PATH=") == -1))
+	if ((y = env_search(envorig, "PATH")) == -1)
 		return (0);
 	bpath = ft_strsplit(&envorig[y][5], ':');
 	y = 0;
