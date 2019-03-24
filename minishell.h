@@ -21,6 +21,8 @@
 # include "libft/ft_printf.h"
 
 int		run_bin(char **command, char **envorig, char **envexec);
+int		exec_bin(char **command, char *cmd, char **envexec);
+
 char	**read_line(char **environ);
 char	**split_line(char *str);
 int		count_words(char *str);
