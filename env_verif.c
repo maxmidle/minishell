@@ -6,7 +6,7 @@
 /*   By: radler <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 18:21:03 by radler            #+#    #+#             */
-/*   Updated: 2019/01/30 18:21:04 by radler           ###   ########.fr       */
+/*   Updated: 2019/03/25 15:05:41 by radler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int	env_search(char **environ, char *var)
 		i++;
 	if (environ[i])
 		return (i);
-	else return (-1);
+	else
+		return (-1);
 }
